@@ -3,30 +3,37 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import { WalletModalProvider, WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
 import { ArrowDown, Wallet, Send, MessageSquare } from 'lucide-react';
 import '@solana/wallet-adapter-react-ui/styles.css';
-import USerBalance from './USerBalance';
+import UserBalance from './UserBalance';
 import AirDrop from './AirDrop';
-import './index.css';
 import CreateToken from './CreateToken';
 import SignMessage from './SignMessage';
+import SendSol from './SendSol';
+
 const App = () => {
   return (
     <ConnectionProvider endpoint="https://solana-devnet.g.alchemy.com/v2/XqiQD6bY6EOPkUrilyH0y7q2IFu6-Zna">
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white">
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-6 py-12">
               {/* Header */}
-              <div className="text-center mb-12 animate-fade-in">
-                <h1 className="text-4xl font-bold mb-4">Solana Wallet Interface</h1>
-                <p className="text-gray-300">Connect, manage, and transfer your SOL with style</p>
+              <div className="text-center mb-16">
+                <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+                  Solana Wallet Interface
+                </h1>
+                <p className="text-lg text-gray-300">
+                  Connect, manage, and transfer your SOL with style
+                </p>
               </div>
+
               {/* Main Content */}
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Left Column - Wallet Controls */}
-                <div className="space-y-6">
-                  <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 className="text-xl font-semibold mb-4 flex items-center">
-                      <Wallet className="mr-2" /> Wallet Connection
+                <div className="space-y-8">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 border border-white/10">
+                    <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                      <Wallet className="mr-3 h-6 w-6" /> 
+                      Wallet Connection
                     </h2>
                     <div className="space-y-4">
                       <WalletMultiButton className="w-full" />
@@ -34,43 +41,45 @@ const App = () => {
                     </div>
                   </div>
 
-                  {/* Balance Card */}
-                  <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 className="text-xl font-semibold mb-4">Balance</h2>
-                    <div className="text-3xl font-bold">
-                      <USerBalance />
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 border border-white/10">
+                    <h2 className="text-2xl font-semibold mb-6">Balance</h2>
+                    <div className="text-4xl font-bold mb-6">
+                      <UserBalance />
+                    </div>
+                    <div className="mt-6">
+                      <CreateToken />
                     </div>
                   </div>
                 </div>
 
                 {/* Right Column - Actions */}
-                <div className="space-y-6">
-                  {/* Airdrop Card */}
-                  <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 className="text-xl font-semibold mb-4 flex items-center">
-                      <ArrowDown className="mr-2" /> Airdrop SOL
+                <div className="space-y-8">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 border border-white/10">
+                    <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                      <ArrowDown className="mr-3 h-6 w-6" /> 
+                      Airdrop SOL
                     </h2>
                     <AirDrop />
                   </div>
 
-                  {/* Future Features Preview */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                      <h2 className="text-xl font-semibold mb-4 flex items-center">
-                        <Send className="mr-2" /> Send SOL
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 border border-white/10">
+                      <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                        <Send className="mr-3 h-6 w-6" /> 
+                        Send SOL
                       </h2>
-                      <p className="text-gray-400">Coming soon...</p>
-                      <SendSol/>
+                      <SendSol />
                     </div>
-                    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                      <h2 className="text-xl font-semibold mb-4 flex flex-col items-center">
-                        <MessageSquare className="mr-2" /> Sign Message
+                    
+                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 border border-white/10">
+                      <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                        <MessageSquare className="mr-3 h-6 w-6" /> 
+                        Sign Message
                       </h2>
-                      <SignMessage/>
+                      <SignMessage />
                     </div>
                   </div>
                 </div>
-                <CreateToken/>
               </div>
             </div>
           </div>

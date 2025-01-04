@@ -34,8 +34,8 @@ const SignMessage = () => {
 
       />
       <button
-        className="bg-green-400 flex justify-center items-center hover:bg-green-500 px-10 py-6 mx-auto my-4 w-[120px] h-[40px] rounded-md text-center"
-        onClick={onSubmit}
+                className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-lg font-medium text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                onClick={onSubmit}
         type="submit"
       >
         {" "}
