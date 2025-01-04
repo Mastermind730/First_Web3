@@ -6,6 +6,8 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import USerBalance from './USerBalance';
 import AirDrop from './AirDrop';
 import './index.css';
+import CreateToken from './CreateToken';
+import SignMessage from './SignMessage';
 const App = () => {
   return (
     <ConnectionProvider endpoint="https://solana-devnet.g.alchemy.com/v2/XqiQD6bY6EOPkUrilyH0y7q2IFu6-Zna">
@@ -18,7 +20,6 @@ const App = () => {
                 <h1 className="text-4xl font-bold mb-4">Solana Wallet Interface</h1>
                 <p className="text-gray-300">Connect, manage, and transfer your SOL with style</p>
               </div>
-
               {/* Main Content */}
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Left Column - Wallet Controls */}
@@ -59,15 +60,17 @@ const App = () => {
                         <Send className="mr-2" /> Send SOL
                       </h2>
                       <p className="text-gray-400">Coming soon...</p>
+                      <SendSol/>
                     </div>
                     <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
-                      <h2 className="text-xl font-semibold mb-4 flex items-center">
+                      <h2 className="text-xl font-semibold mb-4 flex flex-col items-center">
                         <MessageSquare className="mr-2" /> Sign Message
                       </h2>
-                      <p className="text-gray-400">Coming soon...</p>
+                      <SignMessage/>
                     </div>
                   </div>
                 </div>
+                <CreateToken/>
               </div>
             </div>
           </div>
